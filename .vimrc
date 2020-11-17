@@ -42,3 +42,7 @@ function FormatFile()
 endfunction
 map <C-K> :call FormatFile()<cr>
 imap <C-K> <c-o> :call FormatFile()<cr>
+
+" https://github.com/tmux/tmux/issues/699
+set t_Co=256
+set background=dark
