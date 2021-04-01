@@ -25,3 +25,8 @@ export PS1="\[\033[38;5;39m\]\u\[\033[38;5;0m\]@\[\033[38;5;2m\]\h:\[$(tput bold
 function sshs() {
     ssh -t $* "echo `base64 -i ~/remote_ssh_env.sh` | base64 --decode > /tmp/remote_ssh_env.sh; bash --rcfile /tmp/remote_ssh_env.sh"
 }
+
+# for systems where it's not built in
+function tree() {
+    find ${1:-.} | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/├─\1/"
+}
